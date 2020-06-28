@@ -1,13 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:hackaton_app/model/date.dart';
 import 'package:hackaton_app/services/month.dart';
 import 'package:hackaton_app/constants.dart';
 
 
 class InfoScreen extends StatefulWidget {
-  InfoScreen(this.rawData);
+  final Date data;
+  InfoScreen(this.data);
 
-  final rawData;
+
 
   @override
   _InfoScreenState createState() => _InfoScreenState();
@@ -17,7 +19,7 @@ class _InfoScreenState extends State<InfoScreen> {
   @override
   void initState() {
     super.initState();
-    update(widget.rawData);
+   // update(widget.rawData);
   }
 
   void update(dynamic rawData) {
@@ -58,7 +60,8 @@ class _InfoScreenState extends State<InfoScreen> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      DateTime.now().day.toString(),
+                      //DateTime.now().day.toString(),
+                      widget.data.date,
                       style: kDateTextStyle,
                     ),
                     Text(
@@ -94,7 +97,7 @@ class _InfoScreenState extends State<InfoScreen> {
                   ),
                 ),
                 Text(
-                  'In year ${widget.rawData['data']['Events'][0]['year']}, ${widget.rawData['data']['Events'][0]['text']}',
+                  'In year ${widget.data.year}, ${widget.data.desc}',
                   style: kDateTextStyle1,
                 ),
               ],

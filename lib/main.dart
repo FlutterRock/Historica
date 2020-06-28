@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hackaton_app/screens/today_screen.dart';
 import 'package:hackaton_app/service_locator.dart';
 
 import 'screens/loading_screen.dart';
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: LoadingScreen(),
+      home: TodayScreen(),
     );
   }
 }

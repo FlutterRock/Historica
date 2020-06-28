@@ -70,7 +70,7 @@ class _LoadingScreenState extends State<LoadingScreen> {
                 // New date selected
                 setState(() {
                   _selectedValue = date;
-                  getData(date.month, date.day);
+                 // getData(date.month, date.day);
                 });
               },
             ),
