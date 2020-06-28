@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hackaton_app/model/date.dart';
-import 'package:hackaton_app/services/month.dart';
 import 'package:hackaton_app/constants.dart';
 
 
@@ -25,10 +24,25 @@ class _InfoScreenState extends State<InfoScreen> {
   void update(dynamic rawData) {
     setState(() {});
   }
+  
+  void increment() {
+    if (n == 5) {
+      setState(() {
+        n = -1;
+      });
+    }
+    setState(() {
+      n++;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: OutlineButton.icon(
+          onPressed: increment,
+          icon: Icon(Icons.navigate_next),
+          label: Text('Next Fact')),
       body: Container(
         decoration: BoxDecoration(
           gradient: RadialGradient(
@@ -60,12 +74,7 @@ class _InfoScreenState extends State<InfoScreen> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      //DateTime.now().day.toString(),
                       widget.data.date,
-                      style: kDateTextStyle,
-                    ),
-                    Text(
-                      Month().getMonthName(DateTime.now().month),
                       style: kDateTextStyle,
                     ),
                   ],
