@@ -1,4 +1,4 @@
-import 'package:http/http.dart' as http;
+import 'package:http/http.dart';
 import 'dart:convert';
 
 class NetworkHelper {
@@ -7,7 +7,7 @@ class NetworkHelper {
   final String url;
 
   Future getData() async {
-    http.Response res = await http.get(url);
+    Response res = await get(url);
 
     if (res.statusCode == 200) {
       String data = res.body;
