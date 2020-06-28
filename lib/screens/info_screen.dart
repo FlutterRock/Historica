@@ -13,6 +13,7 @@ class InfoScreen extends StatefulWidget {
 }
 
 class _InfoScreenState extends State<InfoScreen> {
+  int n = 0;
   @override
   void initState() {
     super.initState();
@@ -23,9 +24,24 @@ class _InfoScreenState extends State<InfoScreen> {
     setState(() {});
   }
 
+  void increment() {
+    if (n == 5) {
+      setState(() {
+        n = -1;
+      });
+    }
+    setState(() {
+      n++;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: OutlineButton.icon(
+          onPressed: increment,
+          icon: Icon(Icons.navigate_next),
+          label: Text('Next Fact')),
       body: Container(
         decoration: BoxDecoration(
           gradient: RadialGradient(
@@ -92,9 +108,11 @@ class _InfoScreenState extends State<InfoScreen> {
                     endIndent: 400.0,
                   ),
                 ),
-                Text(
-                  'In year ${widget.rawData['data']['Events'][0]['year']}, ${widget.rawData['data']['Events'][0]['text']}',
-                  style: kDateTextStyle1,
+                Expanded(
+                  child: Text(
+                    'In year ${widget.rawData['data']['Events'][n]['year']}, ${widget.rawData['data']['Events'][n]['text']}',
+                    style: kDateTextStyle1,
+                  ),
                 ),
               ],
             ),
