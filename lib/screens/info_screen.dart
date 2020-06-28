@@ -43,6 +43,7 @@ class _InfoScreenState extends State<InfoScreen> {
           child: Padding(
             padding: EdgeInsets.all(18.0),
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
@@ -68,8 +69,22 @@ class _InfoScreenState extends State<InfoScreen> {
                     color: Colors.red,
                   ),
                 ),
-                Text('Today in'),
-                Text('History'),
+                Text(
+                  'Today in',
+                  style: TextStyle(
+                    fontSize: 20.0,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.grey[700],
+                  ),
+                ),
+                Text(
+                  'History',
+                  style: TextStyle(
+                    fontSize: 30.0,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.grey[700],
+                  ),
+                ),
                 SizedBox(
                   height: 40.0,
                   width: double.infinity,
@@ -77,11 +92,17 @@ class _InfoScreenState extends State<InfoScreen> {
                     indent: 20.0,
                     endIndent: 200.0,
                     thickness: 20.0,
-                    color: Colors.red,
+                    color: Color(0xFFEFE2CB),
                   ),
                 ),
                 Text(
-                    'In year ${widget.rawData['data']['Events'][0]['year']}, ${widget.rawData['data']['Events'][0]['text']}'),
+                  'In year ${widget.rawData['data']['Events'][0]['year']}, ${widget.rawData['data']['Events'][0]['text']}',
+                  style: TextStyle(
+                    fontSize: 15.0,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.grey[700],
+                  ),
+                ),
               ],
             ),
           ),
