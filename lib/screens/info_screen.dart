@@ -3,28 +3,26 @@ import 'package:flutter/material.dart';
 import 'package:hackaton_app/model/date.dart';
 import 'package:hackaton_app/constants.dart';
 
-
 class InfoScreen extends StatefulWidget {
   final Date data;
   InfoScreen(this.data);
-
-
 
   @override
   _InfoScreenState createState() => _InfoScreenState();
 }
 
 class _InfoScreenState extends State<InfoScreen> {
+  int n = 0;
   @override
   void initState() {
     super.initState();
-   // update(widget.rawData);
+    // update(widget.rawData);
   }
 
   void update(dynamic rawData) {
     setState(() {});
   }
-  
+
   void increment() {
     if (n == 5) {
       setState(() {
@@ -45,17 +43,21 @@ class _InfoScreenState extends State<InfoScreen> {
           label: Text('Next Fact')),
       body: Container(
         decoration: BoxDecoration(
-          gradient: RadialGradient(
-            radius: 1.5,
-            stops: [
-              0.2,
-              3,
-            ],
-            colors: [
-              Color(0xFFe1f5fe),
-              Color(0xFF64ffda),
-            ],
+          image: DecorationImage(
+            image: AssetImage('images/11.jpg'),
+            fit: BoxFit.fill,
           ),
+//          gradient: RadialGradient(
+//            radius: 1.5,
+//            stops: [
+//              0.2,
+//              3,
+//            ],
+//            colors: [
+//              Color(0xFFe1f5fe),
+//              Color(0xFF64ffda),
+//            ],
+//          ),
         ),
         constraints: BoxConstraints.expand(),
         child: SafeArea(
@@ -115,6 +117,5 @@ class _InfoScreenState extends State<InfoScreen> {
         ),
       ),
     );
-
   }
 }
