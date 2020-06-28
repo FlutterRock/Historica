@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:hackaton_app/services/month.dart';
 import 'package:hackaton_app/constants.dart';
 
+
 class InfoScreen extends StatefulWidget {
   InfoScreen(this.rawData);
 
@@ -102,5 +103,6 @@ class _InfoScreenState extends State<InfoScreen> {
         ),
       ),
     );
+
   }
 }
