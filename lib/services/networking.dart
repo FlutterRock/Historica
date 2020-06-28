@@ -1,3 +1,4 @@
+import 'package:hackaton_app/model/date.dart';
 import 'package:http/http.dart';
 import 'dart:convert';
 
@@ -11,7 +12,8 @@ class NetworkHelper {
 
     if (res.statusCode == 200) {
       String data = res.body;
-      return jsonDecode(data);
+      return Date.fromJson(jsonDecode(data));
+      //  return jsonDecode(data);
     } else {
       print(res.statusCode);
     }
