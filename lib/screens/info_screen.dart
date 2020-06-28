@@ -40,33 +40,50 @@ class _InfoScreenState extends State<InfoScreen> {
         ),
         constraints: BoxConstraints.expand(),
         child: SafeArea(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(DateTime.now().day.toString()),
-              Text(Month().getMonthName(DateTime.now().month)),
-              SizedBox(
-                height: 20.0,
-                width: double.infinity,
-                child: Divider(
-                  color: Colors.red,
+          child: Padding(
+            padding: EdgeInsets.all(18.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  DateTime.now().day.toString(),
+                  style: TextStyle(
+                    fontSize: 80.0,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.grey[700],
+                  ),
                 ),
-              ),
-              Text('Today in'),
-              Text('History'),
-              SizedBox(
-                height: 40.0,
-                width: double.infinity,
-                child: Divider(
-                  indent: 20.0,
-                  endIndent: 200.0,
-                  thickness: 20.0,
-                  color: Colors.red,
+                Text(
+                  Month().getMonthName(DateTime.now().month),
+                  style: TextStyle(
+                    fontSize: 30.0,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.grey[700],
+                  ),
                 ),
-              ),
-              Text(
-                  'In year ${widget.rawData['data']['Events'][0]['year']}, ${widget.rawData['data']['Events'][0]['text']}'),
-            ],
+                SizedBox(
+                  height: 20.0,
+                  width: double.infinity,
+                  child: Divider(
+                    color: Colors.red,
+                  ),
+                ),
+                Text('Today in'),
+                Text('History'),
+                SizedBox(
+                  height: 40.0,
+                  width: double.infinity,
+                  child: Divider(
+                    indent: 20.0,
+                    endIndent: 200.0,
+                    thickness: 20.0,
+                    color: Colors.red,
+                  ),
+                ),
+                Text(
+                    'In year ${widget.rawData['data']['Events'][0]['year']}, ${widget.rawData['data']['Events'][0]['text']}'),
+              ],
+            ),
           ),
         ),
       ),
