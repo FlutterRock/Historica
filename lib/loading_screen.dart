@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:hackaton_app/facts.dart';
+import 'package:hackaton_app/services/facts.dart';
 import 'info_screen.dart';
 
 class LoadingScreen extends StatefulWidget {

@@ -2,7 +2,6 @@ name: hackaton_app
 description: A new Flutter application.
 
 
-publish_to:
 
 version: 1.0.0+1
 

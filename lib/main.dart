@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:historyspeaks/screens/loading-screen.dart';
+
+import 'loading_screen.dart';
 
 void main() {
   runApp(MyApp());
