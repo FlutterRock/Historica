@@ -24,6 +24,8 @@ import 'events.dart';
 */
 class Date {
   String date;
+  String year;
+  String desc;
   String url;
   Data data;
 

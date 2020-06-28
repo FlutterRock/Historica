@@ -7,16 +7,17 @@ const url = 'http://history.muffinlabs.com/date';
 
 abstract class TodayService {
   //Future getDate();
-  Future<Date> getDate();
+  Future<Date> getDate(int month, int day);
 }
 
 class TodayServiceImplementation implements TodayService {
   @override
-  Future<Date> getDate() async {
-    Response res = await get(url);
+  Future<Date> getDate(month, day) async {
+    Response res = await get('$url/$month/$day');
 
     if (res.statusCode == 200) {
       String data = res.body;
+      print(res.body);
       var dataValue = jsonDecode(data);
 
       print("Data from api $dataValue");
