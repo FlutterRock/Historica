@@ -14,10 +14,25 @@ class _LoadingScreenState extends State<LoadingScreen> {
   @override
   void initState() {
     super.initState();
-    //  getData();
+    getData();
   }
 
-  void getData(int month, int day) async {
+  void getData() async {
+    var rawFacts =
+        await FactModel.getFact(DateTime.now().month, DateTime.now().day);
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) {
+          return InfoScreen(rawFacts);
+        },
+      ),
+    );
+  }
+
+
+
+  void getData2(int month, int day) async {
     var rawFacts = await FactModel.getFact(month, day);
     Navigator.push(context, MaterialPageRoute(builder: (context) {
       return InfoScreen(rawFacts);
@@ -25,6 +40,7 @@ class _LoadingScreenState extends State<LoadingScreen> {
   }
 
   var _selectedValue;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

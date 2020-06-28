@@ -7,7 +7,6 @@ class FactModel {
     NetworkHelper networkHelper = NetworkHelper('$url/$month/$date');
 
     var factRawData = await networkHelper.getData();
-    print(factRawData);
     return (factRawData);
   }
 }
