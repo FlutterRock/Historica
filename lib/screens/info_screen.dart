@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hackaton_app/services/month.dart';
 import 'package:hackaton_app/constants.dart';
@@ -42,21 +43,31 @@ class _InfoScreenState extends State<InfoScreen> {
         constraints: BoxConstraints.expand(),
         child: SafeArea(
           child: Padding(
-            padding: EdgeInsets.all(18.0),
+            padding: EdgeInsets.fromLTRB(
+              18.0,
+              30.0,
+              18.0,
+              18.0,
+            ),
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                Text(
-                  DateTime.now().day.toString(),
-                  style: kDateTextStyle,
-                ),
-                Text(
-                  Month().getMonthName(DateTime.now().month),
-                  style: kDateTextStyle,
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      DateTime.now().day.toString(),
+                      style: kDateTextStyle,
+                    ),
+                    Text(
+                      Month().getMonthName(DateTime.now().month),
+                      style: kDateTextStyle,
+                    ),
+                  ],
                 ),
                 SizedBox(
-                  height: 20.0,
+                  height: 30.0,
                   width: double.infinity,
                   child: Divider(
                     color: Colors.red,
@@ -65,6 +76,9 @@ class _InfoScreenState extends State<InfoScreen> {
                 Text(
                   'Today in',
                   style: kHeaderTextStyle,
+                ),
+                SizedBox(
+                  height: 10.0,
                 ),
                 Text(
                   'History',
