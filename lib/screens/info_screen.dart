@@ -24,12 +24,23 @@ class _InfoScreenState extends State<InfoScreen> {
   void update(dynamic rawData) {
     setState(() {});
   }
+  
+  void increment() {
+    if (n == 5) {
+      setState(() {
+        n = -1;
+      });
+    }
+    setState(() {
+      n++;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: OutlineButton.icon(
-          onPressed: null,
+          onPressed: increment,
           icon: Icon(Icons.navigate_next),
           label: Text('Next Fact')),
       body: Container(
