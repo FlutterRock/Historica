@@ -1,6 +1,6 @@
 # historyspeaks
 
-A new Flutter developed in hackaton 2020.
+A new Flutter  application developed in hackaton 2020.
 
 ## Getting Started
 
