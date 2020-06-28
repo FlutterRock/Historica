@@ -28,14 +28,14 @@ class _InfoScreenState extends State<InfoScreen> {
       body: Container(
         decoration: BoxDecoration(
           gradient: RadialGradient(
-            radius: 0.8,
+            radius: 1.5,
             stops: [
               0.2,
-              1,
+              3,
             ],
             colors: [
-              Color(0xFFFFFFFA),
-              Color(0xFF795548),
+              Color(0xFFe1f5fe),
+              Color(0xFF64ffda),
             ],
           ),
         ),
