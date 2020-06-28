@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hackaton_app/services/month.dart';
+import 'package:hackaton_app/constants.dart';
 
 class InfoScreen extends StatefulWidget {
   InfoScreen(this.rawData);
@@ -34,7 +35,7 @@ class _InfoScreenState extends State<InfoScreen> {
             ],
             colors: [
               Color(0xFFFFFFFA),
-              Color(0xFFEFE2CB),
+              Color(0xFF795548),
             ],
           ),
         ),
@@ -44,23 +45,15 @@ class _InfoScreenState extends State<InfoScreen> {
             padding: EdgeInsets.all(18.0),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 Text(
                   DateTime.now().day.toString(),
-                  style: TextStyle(
-                    fontSize: 80.0,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.grey[700],
-                  ),
+                  style: kDateTextStyle,
                 ),
                 Text(
                   Month().getMonthName(DateTime.now().month),
-                  style: TextStyle(
-                    fontSize: 30.0,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.grey[700],
-                  ),
+                  style: kDateTextStyle,
                 ),
                 SizedBox(
                   height: 20.0,
@@ -71,37 +64,23 @@ class _InfoScreenState extends State<InfoScreen> {
                 ),
                 Text(
                   'Today in',
-                  style: TextStyle(
-                    fontSize: 20.0,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.grey[700],
-                  ),
+                  style: kHeaderTextStyle,
                 ),
                 Text(
                   'History',
-                  style: TextStyle(
-                    fontSize: 30.0,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.grey[700],
-                  ),
+                  style: kHeaderTextStyle,
                 ),
                 SizedBox(
                   height: 40.0,
                   width: double.infinity,
                   child: Divider(
                     indent: 20.0,
-                    endIndent: 200.0,
-                    thickness: 20.0,
-                    color: Color(0xFFEFE2CB),
+                    endIndent: 400.0,
                   ),
                 ),
                 Text(
                   'In year ${widget.rawData['data']['Events'][0]['year']}, ${widget.rawData['data']['Events'][0]['text']}',
-                  style: TextStyle(
-                    fontSize: 15.0,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.grey[700],
-                  ),
+                  style: kDateTextStyle1,
                 ),
               ],
             ),
