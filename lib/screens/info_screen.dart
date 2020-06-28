@@ -12,35 +12,11 @@ class InfoScreen extends StatefulWidget {
   _InfoScreenState createState() => _InfoScreenState();
 }
 
-class _InfoScreenState extends State<InfoScreen>
-    with SingleTickerProviderStateMixin {
-  AnimationController controller;
-  Animation animation;
-  int x;
-
+class _InfoScreenState extends State<InfoScreen> {
   @override
   void initState() {
     super.initState();
     update(widget.rawData);
-
-    controller = AnimationController(
-      duration: Duration(seconds: 10),
-      vsync: this,
-    );
-
-    controller.forward();
-
-    controller.addListener(() {
-      setState(() {
-        x = controller.value.toInt() * 5;
-      });
-    });
-  }
-
-  @override
-  void dispose() {
-    controller.dispose();
-    super.dispose();
   }
 
   void update(dynamic rawData) {
@@ -117,7 +93,7 @@ class _InfoScreenState extends State<InfoScreen>
                   ),
                 ),
                 Text(
-                  'In year ${widget.rawData['data']['Events'][x]['year']}, ${widget.rawData['data']['Events'][0]['text']}',
+                  'In year ${widget.rawData['data']['Events'][0]['year']}, ${widget.rawData['data']['Events'][0]['text']}',
                   style: kDateTextStyle1,
                 ),
               ],
