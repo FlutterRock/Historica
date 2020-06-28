@@ -64,7 +64,8 @@ class _InfoScreenState extends State<InfoScreen> {
                   color: Colors.red,
                 ),
               ),
-              Text(widget.rawData['data']['Events'][0]['text']),
+              Text(
+                  'In year ${widget.rawData['data']['Events'][0]['year']}, ${widget.rawData['data']['Events'][0]['text']}'),
             ],
           ),
         ),
