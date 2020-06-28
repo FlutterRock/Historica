@@ -17,10 +17,16 @@ class _LoadingScreenState extends State<LoadingScreen> {
   }
 
   void getData() async {
-    var rawFacts = await FactModel.getFact(6, 27);
-    Navigator.push(context, MaterialPageRoute(builder: (context) {
-      return InfoScreen(rawFacts);
-    }));
+    var rawFacts =
+        await FactModel.getFact(DateTime.now().month, DateTime.now().day);
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) {
+          return InfoScreen(rawFacts);
+        },
+      ),
+    );
   }
 
   @override
