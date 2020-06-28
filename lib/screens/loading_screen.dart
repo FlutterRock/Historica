@@ -30,8 +30,6 @@ class _LoadingScreenState extends State<LoadingScreen> {
     );
   }
 
-
-
   void getData2(int month, int day) async {
     var rawFacts = await FactModel.getFact(month, day);
     Navigator.push(context, MaterialPageRoute(builder: (context) {
@@ -70,7 +68,7 @@ class _LoadingScreenState extends State<LoadingScreen> {
                 // New date selected
                 setState(() {
                   _selectedValue = date;
-                  getData(date.month, date.day);
+                  getData();
                 });
               },
             ),

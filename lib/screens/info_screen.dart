@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:hackaton_app/services/month.dart';
 import 'package:hackaton_app/constants.dart';
 
-
 class InfoScreen extends StatefulWidget {
   InfoScreen(this.rawData);
 
@@ -109,7 +108,7 @@ class _InfoScreenState extends State<InfoScreen> {
                     endIndent: 400.0,
                   ),
                 ),
-                Expanded(
+                Flexible(
                   child: Text(
                     'In year ${widget.rawData['data']['Events'][n]['year']}, ${widget.rawData['data']['Events'][n]['text']}',
                     style: kDateTextStyle1,
@@ -121,6 +120,5 @@ class _InfoScreenState extends State<InfoScreen> {
         ),
       ),
     );
-
   }
 }
