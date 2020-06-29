@@ -35,7 +35,6 @@ class _InfoScreenState extends State<InfoScreen> {
     super.initState();
     index = 0;
   }
-
   @override
   Widget build(BuildContext context) {
     int limit = widget.data.data.events.length;
@@ -107,6 +106,33 @@ class _InfoScreenState extends State<InfoScreen> {
                       color: Colors.red,
                     ),
                   ),
+
+                    Visibility(
+                      visible: _isVisible,
+                      child: DatePicker(
+                        _selectedValue,
+                        height: 70,
+                        initialSelectedDate: _selectedValue,
+                        selectionColor: Colors.black,
+                        selectedTextColor: Colors.white,
+                        onDateChange: (date) {
+                          // New date selected
+                          sl<TodayManager>().inRequest.add(date);
+                          setState(()  {
+                             //_selectedValue =  Helper.getTime();
+                            _isVisible = false;
+                            // getData(date.month, date.day);
+                          });
+                        },
+                      ),
+                    ),
+                    SizedBox(
+                      height: 20.0,
+                      width: double.infinity,
+                      child: Divider(
+                        color: Colors.red,
+                      ),
+                    ),
                   TyperAnimatedTextKit(
                     speed: Duration(milliseconds: 800),
                     onTap: () {
