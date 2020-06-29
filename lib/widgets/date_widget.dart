@@ -66,7 +66,7 @@ class DateShow extends StatelessWidget {
   Widget _date(Day day) {
     print(day.day);
     return  Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.end,
       children: [
         Text(
           '${day.day}',

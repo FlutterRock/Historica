@@ -24,7 +24,7 @@ TextStyle kDateTextStyle1 = TextStyle(
 
 TextStyle kDateTextStyle = TextStyle(
   fontFamily: 'Haike',
-  fontSize: 70.0,
+  fontSize: 100.0,
   fontWeight: FontWeight.bold,
   color: Colors.grey[700],
 );

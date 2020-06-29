@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:hackaton_app/model/date.dart';
 import 'package:hackaton_app/constants.dart';
 import 'package:hackaton_app/widgets/date_widget.dart';
+import 'package:date_picker_timeline/date_picker_timeline.dart';
 
 class InfoScreen extends StatefulWidget {
   final Date data;
@@ -65,42 +66,51 @@ class _InfoScreenState extends State<InfoScreen> {
                     child: DateShow(
                       widget.aDay,
                     ),
+                  DateShow(
+                    widget.aDay,
                   ),
-                  /*Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          widget.data.date,
-                          style: kDateTextStyle,
-                        ),
-                      ],
-                    ),*/
-                  SizedBox(
-                    height: 20.0,
-                    width: double.infinity,
-                    child: Divider(
-                      color: Colors.red,
+                    DatePicker(
+                      DateTime.now(),
+                      initialSelectedDate: DateTime.now(),
+                      selectionColor: Colors.black,
+                      height: 70,
+                      selectedTextColor: Colors.white,
+                      onDateChange: (date) {
+                        // New date selected
+                        setState(() {
+                          // _selectedValue = date;
+                          // getData(date.month, date.day);
+                        });
+                      },
                     ),
-                  ),
-                  Text(
-                    'Today in',
-                    style: kHeaderTextStyle,
-                  ),
-                  SizedBox(
-                    height: 10.0,
-                  ),
-                  Text(
-                    'History',
-                    style: kHeaderTextStyle,
-                  ),
-                  SizedBox(
-                    height: 40.0,
-                    width: double.infinity,
-                    child: Divider(
-                      indent: 20.0,
-                      endIndent: 400.0,
+
+                    SizedBox(
+                      height: 20.0,
+                      width: double.infinity,
+                      child: Divider(
+                        color: Colors.red,
+                      ),
                     ),
-                  ),
+
+                    Text(
+                      'Today in',
+                      style: kHeaderTextStyle,
+                    ),
+                    SizedBox(
+                      height: 10.0,
+                    ),
+                    Text(
+                      'History',
+                      style: kHeaderTextStyle,
+                    ),
+                    SizedBox(
+                      height: 40.0,
+                      width: double.infinity,
+                      child: Divider(
+                        indent: 20.0,
+                        endIndent: 400.0,
+                      ),
+                    ),
                   GestureDetector(
                     onLongPress: () {
                       print('open browser');
