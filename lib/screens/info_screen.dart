@@ -25,19 +25,17 @@ class _InfoScreenState extends State<InfoScreen> {
   bool _isVisible = false;
 
   void showToast() {
-
     setState(() {
-
       _isVisible = !_isVisible;
-
     });
-
   }
+
   @override
   void initState() {
     super.initState();
     index = 0;
   }
+
   @override
   Widget build(BuildContext context) {
     int limit = widget.data.data.events.length;
@@ -83,32 +81,32 @@ class _InfoScreenState extends State<InfoScreen> {
                       widget.aDay,
                     ),
                   ),
-
-                    Visibility(
-                      visible: _isVisible,
-                      child: DatePicker(
-                        _selectedValue,
-                        initialSelectedDate: _selectedValue,
-                        selectionColor: Colors.black,
-                        selectedTextColor: Colors.white,
-                        onDateChange: (date) {
-                          // New date selected
-                          sl<TodayManager>().inRequest.add(date);
-                          setState(()  {
-                             //_selectedValue =  Helper.getTime();
-                            _isVisible = false;
-                            // getData(date.month, date.day);
-                          });
-                        },
-                      ),
+                  Visibility(
+                    visible: _isVisible,
+                    child: DatePicker(
+                      _selectedValue,
+                      height: 90,
+                      initialSelectedDate: _selectedValue,
+                      selectionColor: Colors.black,
+                      selectedTextColor: Colors.white,
+                      onDateChange: (date) {
+                        // New date selected
+                        sl<TodayManager>().inRequest.add(date);
+                        setState(() {
+                          //_selectedValue =  Helper.getTime();
+                          _isVisible = false;
+                          // getData(date.month, date.day);
+                        });
+                      },
                     ),
-                    SizedBox(
-                      height: 20.0,
-                      width: double.infinity,
-                      child: Divider(
-                        color: Colors.red,
-                      ),
+                  ),
+                  SizedBox(
+                    height: 20.0,
+                    width: double.infinity,
+                    child: Divider(
+                      color: Colors.red,
                     ),
+                  ),
                   TyperAnimatedTextKit(
                     speed: Duration(milliseconds: 800),
                     onTap: () {
@@ -133,7 +131,7 @@ class _InfoScreenState extends State<InfoScreen> {
                     textStyle: kHeaderTextStyle,
                   ),
                   SizedBox(
-                    height: 40.0,
+                    height: 30.0,
                     width: double.infinity,
                     child: Divider(
                       indent: 20.0,
@@ -142,7 +140,8 @@ class _InfoScreenState extends State<InfoScreen> {
                   ),
                   GestureDetector(
                     onLongPress: () {
-                      Helper.launchURL("${widget.data.data.events[index].links[0].link}");
+                      Helper.launchURL(
+                          "${widget.data.data.events[index].links[0].link}");
                     },
                     child: SingleChildScrollView(
                       child: Text(
