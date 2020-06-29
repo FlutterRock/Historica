@@ -91,7 +91,8 @@ class _InfoScreenState extends State<InfoScreen> {
                       ),
                     ),
                   TyperAnimatedTextKit(
-                    speed: Duration(milliseconds: 10),
+                    isRepeatingAnimation: false,
+                    speed: Duration(milliseconds: 800),
                     onTap: () {
                       setState(() {});
                     },
@@ -104,7 +105,8 @@ class _InfoScreenState extends State<InfoScreen> {
                     height: 10.0,
                   ),
                   TyperAnimatedTextKit(
-                    speed: Duration(milliseconds: 10),
+                    isRepeatingAnimation: false,
+                    speed: Duration(milliseconds: 800),
                     onTap: () {
                       setState(() {});
                     },
