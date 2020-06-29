@@ -8,17 +8,37 @@ import '../service_locator.dart';
 import 'info_screen.dart';
 
 class YesterdayScreen extends StatelessWidget {
+
+  Route _createRoute() {
+    return PageRouteBuilder(
+      pageBuilder: (context, animation, secondaryAnimation) => TodayScreen(),
+      transitionsBuilder: (context, animation, secondaryAnimation, child) {
+        var begin = Offset(0.0, 1.0);
+        var end = Offset.zero;
+        var curve = Curves.ease;
+
+        var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+
+        return SlideTransition(
+          position: animation.drive(tween),
+          child: child,
+        );
+      },
+    );
+  }
+  AnimationController animationController;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: GestureDetector(
         onHorizontalDragUpdate: (details){
-          if (details.delta.dx > 5) {
+          if (details.delta.dx > 10) {
             // Right Swipe
 
             print('Swipe Right');
             // Sestivity is integer is used when you don't want to mess up vertical drag
-          } else if(details.delta.dx < -5){
+          } else if(details.delta.dx < -10){
             //Left Swipe
             print('Swipe Left');
             Navigator.push(

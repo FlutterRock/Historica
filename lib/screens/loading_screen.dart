@@ -1,9 +1,6 @@
-import 'package:date_picker_timeline/date_picker_timeline.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:hackaton_app/services/facts.dart';
-import 'info_screen.dart';
 
 class LoadingScreen extends StatefulWidget {
   @override
@@ -15,9 +12,6 @@ class _LoadingScreenState extends State<LoadingScreen> {
   void initState() {
     super.initState();
   }
-
-  var _selectedValue;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,28 +32,6 @@ class _LoadingScreenState extends State<LoadingScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-          /*  DatePicker(
-              DateTime.now(),
-              initialSelectedDate: DateTime.now(),
-              selectionColor: Colors.black,
-              selectedTextColor: Colors.white,
-              onDateChange: (date) {
-                // New date selected
-                setState(() {
-                  _selectedValue = date;
-                 // getData(date.month, date.day);
-                });
-              },
-            ),*/
-            /*Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: Text(
-                'TEST',
-                style: TextStyle(
-                  fontSize: 30,
-                ),
-              ),
-            ),*/
             SizedBox(
               height: 20,
             ),

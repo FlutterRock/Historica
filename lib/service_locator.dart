@@ -8,15 +8,8 @@ final sl = GetIt.instance;
 void setUpServiceLocator() {
   // register services
   sl.registerLazySingleton<TodayService>(() => TodayServiceImplementation());
-  /*sl.registerLazySingleton<LocationService>(() => LocationServiceImplementation());
-  sl.registerLazySingleton<PrayerService>(() => PrayerServiceImplementation());
-  sl.registerLazySingleton<FawaidService>(() => FawaidServiceImplementation());*/
 
   // register managers
   sl.registerLazySingleton<TodayManager>(() => TodayManager());
-  /*sl.registerLazySingleton<LocationManager>(() => LocationManager());
-  sl.registerLazySingleton<PrayerManager>(() => PrayerManager());
-  sl.registerLazySingleton<FawaidManager>(() => FawaidManager());
-  sl.registerLazySingleton<NotificationManager>(() => NotificationManager());*/
 }
 

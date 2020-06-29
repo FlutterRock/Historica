@@ -14,15 +14,14 @@ class TodayScreen extends StatelessWidget {
     return Scaffold(
       body: GestureDetector(
         onHorizontalDragUpdate: (details){
-          if (details.delta.dx > 5) {
+          if (details.delta.dx > 10) {
             // Right Swipe
             Navigator.push(
                 context,
                 MaterialPageRoute(
                     builder: (BuildContext context) => YesterdayScreen()));
-            print('Swipe Right');
             // Sestivity is integer is used when you don't want to mess up vertical drag
-          } else if(details.delta.dx < -5){
+          } else if(details.delta.dx < -10){
             //Left Swipe
             print('Swipe Left');
             Navigator.push(

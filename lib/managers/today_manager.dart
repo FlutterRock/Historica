@@ -44,8 +44,6 @@ class TodayManager{
   }
 
   TodayManager(){
-   //  DateTime todayDate = new DateTime.now();
-
      _currentDay.listen((todayDate) {
        DateTime yesterdayDate = todayDate.subtract( Duration(days: 1));
        DateTime tomorrowDate = todayDate.add( Duration(days: 1));
@@ -66,11 +64,5 @@ class TodayManager{
          _dayTomorrow.add(tomorrowValue);
        });
      });
-
-
-
-
-
-
   }
 }

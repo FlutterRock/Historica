@@ -1,27 +1,5 @@
-import 'births.dart';
 import 'data.dart';
-import 'deaths.dart';
-import 'events.dart';
 
-/*class Date {
-  String date;
-  String url;
-  List<dynamic> births;
-  List<dynamic> deaths;
-  List<dynamic> events;
-  Map<String, dynamic> data;
-
-  Date({this.date, this.url, this.data});
-  Date.fromJson(Map<String, dynamic> json) {
-    date = json['date'];
-    url = json['url'];
-    data = json['data'];
-    events = json['data']['Events'];
-    births = json['data']['Birhts'];
-    deaths = json['data']['Deaths'];
-  }
-}
-*/
 class Date {
   String date;
   String year;
