@@ -101,9 +101,14 @@ class _InfoScreenState extends State<InfoScreen> {
                       endIndent: 400.0,
                     ),
                   ),
-                  Text(
-                    'In year ${widget.data.data.events[index].year}, ${widget.data.data.events[index].text}',
-                    style: kDateTextStyle1,
+                  GestureDetector(
+                    onLongPress: () {
+                      print('open browser');
+                    },
+                    child: Text(
+                      'In year ${widget.data.data.events[index].year}, ${widget.data.data.events[index].text}',
+                      style: kDateTextStyle1,
+                    ),
                   ),
                 ],
               ),
