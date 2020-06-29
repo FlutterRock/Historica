@@ -41,7 +41,7 @@ class _InfoScreenState extends State<InfoScreen> {
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('images/11.jpg'),
+            image: AssetImage('images/13.jpg'),
             fit: BoxFit.fill,
           ),
         ),
@@ -67,47 +67,46 @@ class _InfoScreenState extends State<InfoScreen> {
                       widget.aDay,
                     ),
                   ),
-                    DatePicker(
-                      DateTime.now(),
-                      initialSelectedDate: DateTime.now(),
-                      selectionColor: Colors.black,
-                      height: 70,
-                      selectedTextColor: Colors.white,
-                      onDateChange: (date) {
-                        // New date selected
-                        setState(() {
-                          // _selectedValue = date;
-                          // getData(date.month, date.day);
-                        });
-                      },
+                  DatePicker(
+                    DateTime.now(),
+                    initialSelectedDate: DateTime.now(),
+                    selectionColor: Colors.black,
+                    height: 70,
+                    selectedTextColor: Colors.white,
+                    onDateChange: (date) {
+                      // New date selected
+                      setState(() {
+                        // _selectedValue = date;
+                        // getData(date.month, date.day);
+                      });
+                    },
+                  ),
+                  SizedBox(
+                    height: 20.0,
+                    width: double.infinity,
+                    child: Divider(
+                      color: Colors.red,
                     ),
-                    SizedBox(
-                      height: 20.0,
-                      width: double.infinity,
-                      child: Divider(
-                        color: Colors.red,
-                      ),
+                  ),
+                  Text(
+                    'Today in',
+                    style: kHeaderTextStyle,
+                  ),
+                  SizedBox(
+                    height: 10.0,
+                  ),
+                  Text(
+                    'History',
+                    style: kHeaderTextStyle,
+                  ),
+                  SizedBox(
+                    height: 40.0,
+                    width: double.infinity,
+                    child: Divider(
+                      indent: 20.0,
+                      endIndent: 400.0,
                     ),
-
-                    Text(
-                      'Today in',
-                      style: kHeaderTextStyle,
-                    ),
-                    SizedBox(
-                      height: 10.0,
-                    ),
-                    Text(
-                      'History',
-                      style: kHeaderTextStyle,
-                    ),
-                    SizedBox(
-                      height: 40.0,
-                      width: double.infinity,
-                      child: Divider(
-                        indent: 20.0,
-                        endIndent: 400.0,
-                      ),
-                    ),
+                  ),
                   GestureDetector(
                     onLongPress: () {
                       print('open browser');
