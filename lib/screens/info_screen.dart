@@ -4,6 +4,7 @@ import 'package:hackaton_app/model/date.dart';
 import 'package:hackaton_app/constants.dart';
 import 'package:hackaton_app/widgets/date_widget.dart';
 import 'package:date_picker_timeline/date_picker_timeline.dart';
+import 'package:animated_text_kit/animated_text_kit.dart';
 
 class InfoScreen extends StatefulWidget {
   final Date data;
@@ -67,47 +68,58 @@ class _InfoScreenState extends State<InfoScreen> {
                       widget.aDay,
                     ),
                   ),
-                    DatePicker(
-                      DateTime.now(),
-                      initialSelectedDate: DateTime.now(),
-                      selectionColor: Colors.black,
-                      height: 70,
-                      selectedTextColor: Colors.white,
-                      onDateChange: (date) {
-                        // New date selected
-                        setState(() {
-                          // _selectedValue = date;
-                          // getData(date.month, date.day);
-                        });
-                      },
+                  DatePicker(
+                    DateTime.now(),
+                    initialSelectedDate: DateTime.now(),
+                    selectionColor: Colors.black,
+                    height: 70,
+                    selectedTextColor: Colors.white,
+                    onDateChange: (date) {
+                      // New date selected
+                      setState(() {
+                        // _selectedValue = date;
+                        // getData(date.month, date.day);
+                      });
+                    },
+                  ),
+                  SizedBox(
+                    height: 20.0,
+                    width: double.infinity,
+                    child: Divider(
+                      color: Colors.red,
                     ),
-                    SizedBox(
-                      height: 20.0,
-                      width: double.infinity,
-                      child: Divider(
-                        color: Colors.red,
-                      ),
-                    ),
-
-                    Text(
+                  ),
+                  TyperAnimatedTextKit(
+                    speed: Duration(milliseconds: 10),
+                    onTap: () {
+                      setState(() {});
+                    },
+                    text: [
                       'Today in',
-                      style: kHeaderTextStyle,
-                    ),
-                    SizedBox(
-                      height: 10.0,
-                    ),
-                    Text(
+                    ],
+                    textStyle: kHeaderTextStyle,
+                  ),
+                  SizedBox(
+                    height: 10.0,
+                  ),
+                  TyperAnimatedTextKit(
+                    speed: Duration(milliseconds: 10),
+                    onTap: () {
+                      setState(() {});
+                    },
+                    text: [
                       'History',
-                      style: kHeaderTextStyle,
+                    ],
+                    textStyle: kHeaderTextStyle,
+                  ),
+                  SizedBox(
+                    height: 40.0,
+                    width: double.infinity,
+                    child: Divider(
+                      indent: 20.0,
+                      endIndent: 400.0,
                     ),
-                    SizedBox(
-                      height: 40.0,
-                      width: double.infinity,
-                      child: Divider(
-                        indent: 20.0,
-                        endIndent: 400.0,
-                      ),
-                    ),
+                  ),
                   GestureDetector(
                     onLongPress: () {
                       print('open browser');
