@@ -43,17 +43,6 @@ class _InfoScreenState extends State<InfoScreen> {
             image: AssetImage('images/11.jpg'),
             fit: BoxFit.fill,
           ),
-//          gradient: RadialGradient(
-//            radius: 1.5,
-//            stops: [
-//              0.2,
-//              3,
-//            ],
-//            colors: [
-//              Color(0xFFe1f5fe),
-//              Color(0xFF64ffda),
-//            ],
-//          ),
         ),
         constraints: BoxConstraints.expand(),
         child: SingleChildScrollView(
@@ -69,8 +58,13 @@ class _InfoScreenState extends State<InfoScreen> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  DateShow(
-                    widget.aDay,
+                  FlatButton(
+                    onPressed: () {
+                      print('hello');
+                    },
+                    child: DateShow(
+                      widget.aDay,
+                    ),
                   ),
                   /*Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -107,15 +101,9 @@ class _InfoScreenState extends State<InfoScreen> {
                       endIndent: 400.0,
                     ),
                   ),
-                  GestureDetector(
-                    onLongPress: () {},
-                    child: Text(
-                      'In year ${widget.data.data.events[index].year}, ${widget.data.data.events[index].text}',
-                      style: kDateTextStyle1,
-                    ),
-                  ),
-                  SizedBox(
-                    height: 10,
+                  Text(
+                    'In year ${widget.data.data.events[index].year}, ${widget.data.data.events[index].text}',
+                    style: kDateTextStyle1,
                   ),
                 ],
               ),
