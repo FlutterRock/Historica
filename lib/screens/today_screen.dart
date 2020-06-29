@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hackaton_app/managers/today_manager.dart';
 import 'package:hackaton_app/model/date.dart';
+import 'package:hackaton_app/screens/loading_screen.dart';
 import 'package:hackaton_app/screens/tomorrow_screen.dart';
 import 'package:hackaton_app/screens/yesterday_screen.dart';
 
@@ -38,8 +39,8 @@ class TodayScreen extends StatelessWidget {
                 return Text('Error: ${snapshot.error}');
               switch (snapshot.connectionState) {
                 case ConnectionState.none: return Text('Select lot');
-                case ConnectionState.waiting: return CircularProgressIndicator();
-                case ConnectionState.active: return InfoScreen(snapshot.data);
+                case ConnectionState.waiting: return LoadingScreen();
+                case ConnectionState.active: return InfoScreen(snapshot.data, "today");
                 case ConnectionState.done: return Text('${snapshot.data} (closed)');
               }
               return null;

@@ -1,6 +1,9 @@
 import 'dart:convert';
 
+import 'package:flutter/foundation.dart';
+import 'package:hackaton_app/model/data.dart';
 import 'package:hackaton_app/model/date.dart';
+import 'package:hackaton_app/model/events.dart';
 import 'package:http/http.dart';
 
 const url = 'http://history.muffinlabs.com/date';
@@ -17,18 +20,14 @@ class TodayServiceImplementation implements TodayService {
 
     if (res.statusCode == 200) {
       String data = res.body;
-      print(res.body);
-      var dataValue = jsonDecode(data);
+      Map<String, dynamic> date = jsonDecode(data);
 
-      print("Data from api $dataValue");
+      return  Date.fromJson(date);
 
-      Map<String, dynamic> user = jsonDecode(data);
-      var name = user['date'];
-
-      return Date(date: name);
     } else {
       print(res.statusCode);
     }
     throw UnimplementedError();
+
   }
 }

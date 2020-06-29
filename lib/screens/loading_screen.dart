@@ -14,29 +14,6 @@ class _LoadingScreenState extends State<LoadingScreen> {
   @override
   void initState() {
     super.initState();
-    getData();
-  }
-
-  void getData() async {
-    var rawFacts =
-        await FactModel.getFact(DateTime.now().month, DateTime.now().day);
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) {
-          return InfoScreen(rawFacts);
-        },
-      ),
-    );
-  }
-
-
-
-  void getData2(int month, int day) async {
-    var rawFacts = await FactModel.getFact(month, day);
-    Navigator.push(context, MaterialPageRoute(builder: (context) {
-      return InfoScreen(rawFacts);
-    }));
   }
 
   var _selectedValue;
@@ -61,7 +38,7 @@ class _LoadingScreenState extends State<LoadingScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            DatePicker(
+          /*  DatePicker(
               DateTime.now(),
               initialSelectedDate: DateTime.now(),
               selectionColor: Colors.black,
@@ -73,8 +50,8 @@ class _LoadingScreenState extends State<LoadingScreen> {
                  // getData(date.month, date.day);
                 });
               },
-            ),
-            Padding(
+            ),*/
+            /*Padding(
               padding: const EdgeInsets.all(10.0),
               child: Text(
                 'TEST',
@@ -82,7 +59,7 @@ class _LoadingScreenState extends State<LoadingScreen> {
                   fontSize: 30,
                 ),
               ),
-            ),
+            ),*/
             SizedBox(
               height: 20,
             ),

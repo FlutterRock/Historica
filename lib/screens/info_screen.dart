@@ -2,43 +2,37 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hackaton_app/model/date.dart';
 import 'package:hackaton_app/constants.dart';
+import 'package:hackaton_app/widgets/date_widget.dart';
+
 
 class InfoScreen extends StatefulWidget {
   final Date data;
-  InfoScreen(this.data);
+  final String aDay;
+  InfoScreen(this.data, this.aDay);
+
+
 
   @override
   _InfoScreenState createState() => _InfoScreenState();
 }
 
 class _InfoScreenState extends State<InfoScreen> {
-  int n = 0;
   @override
   void initState() {
     super.initState();
-    // update(widget.rawData);
+   // update(widget.rawData);
   }
 
   void update(dynamic rawData) {
     setState(() {});
   }
 
-  void increment() {
-    if (n == 5) {
-      setState(() {
-        n = -1;
-      });
-    }
-    setState(() {
-      n++;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
+    print(widget.aDay);
     return Scaffold(
       floatingActionButton: OutlineButton.icon(
-          onPressed: increment,
+          onPressed: null,
           icon: Icon(Icons.navigate_next),
           label: Text('Next Fact')),
       body: Container(
@@ -72,7 +66,8 @@ class _InfoScreenState extends State<InfoScreen> {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                Column(
+               DateShow(widget.aDay),
+                /*Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
@@ -80,7 +75,7 @@ class _InfoScreenState extends State<InfoScreen> {
                       style: kDateTextStyle,
                     ),
                   ],
-                ),
+                ),*/
                 SizedBox(
                   height: 30.0,
                   width: double.infinity,
@@ -108,7 +103,7 @@ class _InfoScreenState extends State<InfoScreen> {
                   ),
                 ),
                 Text(
-                  'In year ${widget.data.year}, ${widget.data.desc}',
+                  'In year ${widget.data.data.events[0].year}, ${widget.data.data.events[0].text}',
                   style: kDateTextStyle1,
                 ),
               ],
@@ -119,3 +114,5 @@ class _InfoScreenState extends State<InfoScreen> {
     );
   }
 }
+
+
