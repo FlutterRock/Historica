@@ -12,6 +12,7 @@ class TodayManager{
   final BehaviorSubject<Day> _dayToday = BehaviorSubject<Day>();
   final BehaviorSubject<Day> _dayTomorrow = BehaviorSubject<Day>();
   final BehaviorSubject<Day>  _dayYesterday = BehaviorSubject<Day>();
+  final BehaviorSubject<DateTime>  _currentDay = BehaviorSubject<DateTime>();
 
 
 
@@ -22,6 +23,10 @@ class TodayManager{
   Stream<Day> get dayToday$ => _dayToday.stream;
   Stream<Day> get dayTomorrow$ => _dayTomorrow.stream;
   Stream<Day> get dayYesterday$ => _dayYesterday.stream;
+
+  Stream<DateTime> get currentDay$ => _currentDay.stream;
+
+  Sink<DateTime>  get inRequest => _currentDay.sink;
 
 
   Stream yesterday(month, day) {
@@ -39,25 +44,32 @@ class TodayManager{
   }
 
   TodayManager(){
-     DateTime todayDate = new DateTime.now();
-     DateTime yesterdayDate = todayDate.subtract( Duration(days: 1));
-     DateTime tomorrowDate = todayDate.add( Duration(days: 1));
+   //  DateTime todayDate = new DateTime.now();
 
-    yesterday(yesterdayDate.month, yesterdayDate.day).listen((date) {
-      _yesterday.add(date);
-      Day yesterdayValue = Day(day: yesterdayDate.day, month: yesterdayDate.month );
-      _dayYesterday.add(yesterdayValue);
-    });
-    today(todayDate.month, todayDate.day).listen((date) {
-      _today.add(date);
-      Day todayValue = Day(day: todayDate.day, month: todayDate.month );
-      _dayToday.add(todayValue);
-    });
-    tomorrow(tomorrowDate.month, tomorrowDate.day).listen((date) {
-      _tomorrow.add(date);
-      Day tomorrowValue = Day(day: tomorrowDate.day, month: tomorrowDate.month );
-      _dayTomorrow.add(tomorrowValue);
-    });
+     _currentDay.listen((todayDate) {
+       DateTime yesterdayDate = todayDate.subtract( Duration(days: 1));
+       DateTime tomorrowDate = todayDate.add( Duration(days: 1));
+
+       yesterday(yesterdayDate.month, yesterdayDate.day).listen((date) {
+         _yesterday.add(date);
+         Day yesterdayValue = Day(day: yesterdayDate.day, month: yesterdayDate.month );
+         _dayYesterday.add(yesterdayValue);
+       });
+       today(todayDate.month, todayDate.day).listen((date) {
+         _today.add(date);
+         Day todayValue = Day(day: todayDate.day, month: todayDate.month );
+         _dayToday.add(todayValue);
+       });
+       tomorrow(tomorrowDate.month, tomorrowDate.day).listen((date) {
+         _tomorrow.add(date);
+         Day tomorrowValue = Day(day: tomorrowDate.day, month: tomorrowDate.month );
+         _dayTomorrow.add(tomorrowValue);
+       });
+     });
+
+
+
+
 
 
   }

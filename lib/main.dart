@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hackaton_app/screens/today_screen.dart';
 import 'package:hackaton_app/service_locator.dart';
 
+import 'managers/today_manager.dart';
 import 'screens/loading_screen.dart';
 
 void main() {
@@ -16,6 +17,8 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    sl<TodayManager>().inRequest.add(DateTime.now());
+
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: TodayScreen(),

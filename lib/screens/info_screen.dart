@@ -1,11 +1,14 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:hackaton_app/managers/today_manager.dart';
 import 'package:hackaton_app/model/date.dart';
 import 'package:hackaton_app/constants.dart';
 import 'package:hackaton_app/widgets/date_widget.dart';
 import 'package:date_picker_timeline/date_picker_timeline.dart';
 import 'package:hackaton_app/widgets/launchWeb.dart';
+
+import '../service_locator.dart';
 
 class InfoScreen extends StatefulWidget {
   final Date data;
@@ -43,7 +46,7 @@ class _InfoScreenState extends State<InfoScreen> {
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('images/13.jpg'),
+            image: AssetImage('images/11.jpg'),
             fit: BoxFit.fill,
           ),
         ),
@@ -77,6 +80,8 @@ class _InfoScreenState extends State<InfoScreen> {
                       selectedTextColor: Colors.white,
                       onDateChange: (date) {
                         // New date selected
+                        sl<TodayManager>().inRequest.add(date);
+
                         setState(() {
                           // _selectedValue = date;
                           // getData(date.month, date.day);
@@ -142,4 +147,5 @@ class _InfoScreenState extends State<InfoScreen> {
       ),
     );
   }
+
 }
