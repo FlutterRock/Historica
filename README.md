@@ -1,5 +1,5 @@
 # Historica
-
+#Hack20 
 Historica is a app that displays numerous events with beautiful UI that have precisely occured on any given date.
 
 Most of us at one point or another have pondered over what may have happened on any given date in such a long known existence of Humans . If you have also felt this curiosity then this app is all you need rather than googling up plethora of inforamtion for every date. If the small info on each event provided there isn't suffcient for you then you can press that text which will redirect you to wikipedia page of that event and you can  learn as much as you wish. just perfect for  epistemophilic.
