@@ -4,13 +4,10 @@ import 'package:hackaton_app/model/date.dart';
 import 'package:hackaton_app/constants.dart';
 import 'package:hackaton_app/widgets/date_widget.dart';
 
-
 class InfoScreen extends StatefulWidget {
   final Date data;
   final String aDay;
   InfoScreen(this.data, this.aDay);
-
-
 
   @override
   _InfoScreenState createState() => _InfoScreenState();
@@ -20,7 +17,7 @@ class _InfoScreenState extends State<InfoScreen> {
   @override
   void initState() {
     super.initState();
-   // update(widget.rawData);
+    // update(widget.rawData);
   }
 
   void update(dynamic rawData) {
@@ -66,7 +63,9 @@ class _InfoScreenState extends State<InfoScreen> {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-               DateShow(widget.aDay),
+                DateShow(
+                  widget.aDay,
+                ),
                 /*Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -77,7 +76,7 @@ class _InfoScreenState extends State<InfoScreen> {
                   ],
                 ),*/
                 SizedBox(
-                  height: 30.0,
+                  height: 20.0,
                   width: double.infinity,
                   child: Divider(
                     color: Colors.red,
@@ -114,5 +113,3 @@ class _InfoScreenState extends State<InfoScreen> {
     );
   }
 }
-
-
