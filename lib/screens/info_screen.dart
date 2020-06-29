@@ -21,16 +21,27 @@ class InfoScreen extends StatefulWidget {
 
 class _InfoScreenState extends State<InfoScreen> {
   int index;
+  DateTime _selectedValue = DateTime.now();
+  bool _isVisible = false;
 
+  void showToast() {
+
+    setState(() {
+
+      _isVisible = !_isVisible;
+
+    });
+
+  }
   @override
   void initState() {
     super.initState();
     index = 0;
   }
-
   @override
   Widget build(BuildContext context) {
     int limit = widget.data.data.events.length;
+
     return Scaffold(
       floatingActionButton: OutlineButton.icon(
           onPressed: () {
@@ -66,27 +77,30 @@ class _InfoScreenState extends State<InfoScreen> {
                 children: [
                   GestureDetector(
                     onTap: () {
-                      print('hello');
+                      showToast();
                     },
                     child: DateShow(
                       widget.aDay,
                     ),
                   ),
 
-                    DatePicker(
-                      DateTime.now(),
-                      initialSelectedDate: DateTime.now(),
-                      selectionColor: Colors.black,
-                      selectedTextColor: Colors.white,
-                      onDateChange: (date) {
-                        // New date selected
-                        sl<TodayManager>().inRequest.add(date);
-
-                        setState(() {
-                          // _selectedValue = date;
-                          // getData(date.month, date.day);
-                        });
-                      },
+                    Visibility(
+                      visible: _isVisible,
+                      child: DatePicker(
+                        _selectedValue,
+                        initialSelectedDate: _selectedValue,
+                        selectionColor: Colors.black,
+                        selectedTextColor: Colors.white,
+                        onDateChange: (date) {
+                          // New date selected
+                          sl<TodayManager>().inRequest.add(date);
+                          setState(()  {
+                             //_selectedValue =  Helper.getTime();
+                            _isVisible = false;
+                            // getData(date.month, date.day);
+                          });
+                        },
+                      ),
                     ),
                     SizedBox(
                       height: 20.0,
@@ -145,5 +159,4 @@ class _InfoScreenState extends State<InfoScreen> {
       ),
     );
   }
-
 }
