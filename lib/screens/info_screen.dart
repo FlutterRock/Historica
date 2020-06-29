@@ -66,8 +66,6 @@ class _InfoScreenState extends State<InfoScreen> {
                     child: DateShow(
                       widget.aDay,
                     ),
-                  DateShow(
-                    widget.aDay,
                   ),
                     DatePicker(
                       DateTime.now(),
@@ -83,7 +81,6 @@ class _InfoScreenState extends State<InfoScreen> {
                         });
                       },
                     ),
-
                     SizedBox(
                       height: 20.0,
                       width: double.infinity,
@@ -115,9 +112,11 @@ class _InfoScreenState extends State<InfoScreen> {
                     onLongPress: () {
                       print('open browser');
                     },
-                    child: Text(
-                      'In year ${widget.data.data.events[index].year}, ${widget.data.data.events[index].text}',
-                      style: kDateTextStyle1,
+                    child: SingleChildScrollView(
+                      child: Text(
+                        'In year ${widget.data.data.events[index].year}, ${widget.data.data.events[index].text}',
+                        style: kDateTextStyle1,
+                      ),
                     ),
                   ),
                 ],
