@@ -58,8 +58,8 @@ class _InfoScreenState extends State<InfoScreen> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  FlatButton(
-                    onPressed: () {
+                  GestureDetector(
+                    onTap: () {
                       print('hello');
                     },
                     child: DateShow(
