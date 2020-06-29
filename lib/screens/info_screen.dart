@@ -14,30 +14,37 @@ class InfoScreen extends StatefulWidget {
 }
 
 class _InfoScreenState extends State<InfoScreen> {
+
+  int index;
+
   @override
   void initState() {
     super.initState();
-    // update(widget.rawData);
-  }
-
-  void update(dynamic rawData) {
-    setState(() {});
+    index = 0;
   }
 
   @override
   Widget build(BuildContext context) {
-    print(widget.aDay);
+    int limit = widget.data.data.events.length;
     return Scaffold(
       floatingActionButton: OutlineButton.icon(
-          onPressed: null,
+          onPressed: (){
+            setState(() {
+              if(index == limit-1) {
+              }
+              else {
+                index++;
+              }
+            });
+          },
           icon: Icon(Icons.navigate_next),
           label: Text('Next Fact')),
-      body: Container(
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage('images/11.jpg'),
-            fit: BoxFit.fill,
-          ),
+      body:  Container(
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage('images/11.jpg'),
+              fit: BoxFit.fill,
+            ),
 //          gradient: RadialGradient(
 //            radius: 1.5,
 //            stops: [
@@ -49,67 +56,71 @@ class _InfoScreenState extends State<InfoScreen> {
 //              Color(0xFF64ffda),
 //            ],
 //          ),
-        ),
-        constraints: BoxConstraints.expand(),
-        child: SafeArea(
-          child: Padding(
-            padding: EdgeInsets.fromLTRB(
-              18.0,
-              30.0,
-              18.0,
-              18.0,
-            ),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                DateShow(
-                  widget.aDay,
+          ),
+          constraints: BoxConstraints.expand(),
+          child: SingleChildScrollView(
+            child: SafeArea(
+              child: Padding(
+                padding: EdgeInsets.fromLTRB(
+                  18.0,
+                  30.0,
+                  18.0,
+                  18.0,
                 ),
-                /*Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
+                    DateShow(
+                      widget.aDay,
+                    ),
+                    /*Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          widget.data.date,
+                          style: kDateTextStyle,
+                        ),
+                      ],
+                    ),*/
+                    SizedBox(
+                      height: 20.0,
+                      width: double.infinity,
+                      child: Divider(
+                        color: Colors.red,
+                      ),
+                    ),
                     Text(
-                      widget.data.date,
-                      style: kDateTextStyle,
+                      'Today in',
+                      style: kHeaderTextStyle,
+                    ),
+                    SizedBox(
+                      height: 10.0,
+                    ),
+                    Text(
+                      'History',
+                      style: kHeaderTextStyle,
+                    ),
+                    SizedBox(
+                      height: 40.0,
+                      width: double.infinity,
+                      child: Divider(
+                        indent: 20.0,
+                        endIndent: 400.0,
+                      ),
+                    ),
+                    Text(
+                      'In year ${widget.data.data.events[index].year}, ${widget.data.data.events[index].text}',
+                      style: kDateTextStyle1,
                     ),
                   ],
-                ),*/
-                SizedBox(
-                  height: 20.0,
-                  width: double.infinity,
-                  child: Divider(
-                    color: Colors.red,
-                  ),
                 ),
-                Text(
-                  'Today in',
-                  style: kHeaderTextStyle,
-                ),
-                SizedBox(
-                  height: 10.0,
-                ),
-                Text(
-                  'History',
-                  style: kHeaderTextStyle,
-                ),
-                SizedBox(
-                  height: 40.0,
-                  width: double.infinity,
-                  child: Divider(
-                    indent: 20.0,
-                    endIndent: 400.0,
-                  ),
-                ),
-                Text(
-                  'In year ${widget.data.data.events[0].year}, ${widget.data.data.events[0].text}',
-                  style: kDateTextStyle1,
-                ),
-              ],
+              ),
             ),
           ),
-        ),
       ),
     );
   }
 }
+
+

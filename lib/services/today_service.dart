@@ -1,9 +1,6 @@
 import 'dart:convert';
 
-import 'package:flutter/foundation.dart';
-import 'package:hackaton_app/model/data.dart';
 import 'package:hackaton_app/model/date.dart';
-import 'package:hackaton_app/model/events.dart';
 import 'package:http/http.dart';
 
 const url = 'http://history.muffinlabs.com/date';
